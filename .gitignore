@@ -1,0 +1,19 @@
+# Virtual environment
+venv/
+
+# Downloaded fonts (fetched automatically on first run)
+fonts/
+
+# Input WhatsApp chat logs (contains private user messages)
+chat.txt
+_chat.txt
+
+# Generated PDF output files
+*.pdf
+
+# Python bytecode caches
+__pycache__/
+*.pyc
+
+# macOS system files
+.DS_Store
