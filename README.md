@@ -25,35 +25,38 @@ Convert a WhatsApp chat export (`.txt`) into a styled PDF that visually resemble
 - Python 3.10+
 - [fpdf2](https://pypi.org/project/fpdf2/)
 
-```bash
-pip install fpdf2
-```
-
-Font files are downloaded automatically into `./fonts/` the first time you run the script. No other dependencies are required.
+Fonts are downloaded automatically into `./fonts/` on the first run of the script.
 
 ---
 
 ## Usage
 
 1. **Export your WhatsApp chat**  
-   In WhatsApp → open the chat → ⋮ Menu → More → Export chat → **Without media**
+   Open the chat in WhatsApp → ⋮ Menu (or chat info) → More → Export chat → select **Without media**.
 
-2. **Place the file in the script folder**  
-   Rename the export to `chat.txt` and put it in the same directory as `whatsapp_to_pdf.py`
+2. **Place and save the export**  
+   Rename your exported `.txt` file to `chat.txt` and put it in the same directory as `whatsapp_to_pdf.py`.  
+   > [!IMPORTANT]
+   > Make sure the `chat.txt` file is **saved to disk** (press `Cmd + S` in VS Code). If the file is not saved, the script will read an empty file on disk and parse 0 messages.
 
-3. **Set your name in the config block**  
-   Open `whatsapp_to_pdf.py` and edit line 17:
+3. **Configure your name**  
+   Open `whatsapp_to_pdf.py` and set your name exactly as it appears in the chat:
    ```python
-   MY_NAME = "YourName"   # must match exactly how your name appears in the chat
+   MY_NAME = "Your Name"  # case-sensitive
    ```
 
-4. **Run the script**
+4. **Run the script**  
+   Execute the script using the local virtual environment to ensure `fpdf2` is correctly resolved:
    ```bash
-   python whatsapp_to_pdf.py
+   ./venv/bin/python3 whatsapp_to_pdf.py
    ```
+   *(Alternatively, if running globally, use `python3 whatsapp_to_pdf.py` after installing `pip install fpdf2`).*
 
-5. **Open the output**  
-   The PDF is saved as `whatsapp_chat.pdf` in the same folder.
+5. **View your PDF**  
+   Open the generated `whatsapp_chat.pdf` in the same directory:
+   ```bash
+   open whatsapp_chat.pdf
+   ```
 
 ---
 
